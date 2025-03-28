@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #333;
+        }
+        #chat {
+            width: 60%;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 400px;
+            overflow-y: auto;
+            background-color: #fff;
+        }
+        button, input {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #f0f0f0;
+        }
+        #imageInput {
+            margin-top: 10px;
+        }
+        #videoContainer {
+            margin-top: 20px;
+        }
+        #capturedImage {
+            margin-top: 10px;
+        }
+        #errorMessage {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat with AI</h1>
+
+    <div id="chat"></div>
+
+    <!-- Message input field -->
+    <input type="text" id="messageInput" placeholder="Введите сообщение...">
+    <!-- Image upload field -->
+    <input type="file" id="imageInput" accept="image/*">
+    <button id="sendMessageButton" onclick="sendMessage()">Отправить</button>
+
+    <!-- Button to turn on the camera -->
+    <button onclick="openCamera()">Сделать фото</button>
+
+    <div id="videoContainer">
+        <video id="video" width="320" height="240" autoplay></video>
+        <canvas id="canvas" width="320" height="240" style="display: none;"></canvas>
+        <button onclick="captureImage()">Сделать снимок</button>
+        <button onclick="cancelCapture()">Отменить съемку</button>
+        <img id="capturedImage" src="" alt="Captured Image" style="display: none;">
+    </div>
+
+    <div id="errorMessage"></div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
